@@ -6,7 +6,7 @@
             "host": 1,
             "game": 1,
             "date": "2021-08-15",
-            "time": "7:00 PM",
+            "time": "18:00",
             "description": "All yall entrepreneurs need to get in on this.",
             "title": "Monopoly night, bring it on"
         }
@@ -18,9 +18,21 @@
             "host": 1,
             "game": 2,
             "date": "2021-08-16",
-            "time": "7:00 PM",
+            "time": "19:00",
             "description": "Come out for some wizard stuff.",
             "title": "D&D Lovers Unite"
+        }
+    },
+    {
+        "model": "levelupapi.event",
+        "pk": 3,
+        "fields": {
+            "host": 1,
+            "game": 1,
+            "date": "2021-08-19",
+            "time": "20:00",
+            "description": "Come out for some wizard stuff.",
+            "title": "Boardwalk Bonanza"
         }
     }
 ]

@@ -1,0 +1,26 @@
+[
+    {
+        "model": "levelupapi.event",
+        "pk": 1,
+        "fields": {
+            "host": 1,
+            "game": 1,
+            "date": "2021-08-15",
+            "time": "7:00 PM",
+            "description": "All yall entrepreneurs need to get in on this.",
+            "title": "Monopoly night, bring it on"
+        }
+    },
+    {
+        "model": "levelupapi.event",
+        "pk": 2,
+        "fields": {
+            "host": 1,
+            "game": 2,
+            "date": "2021-08-16",
+            "time": "7:00 PM",
+            "description": "Come out for some wizard stuff.",
+            "title": "D&D Lovers Unite"
+        }
+    }
+]

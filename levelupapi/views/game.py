@@ -27,7 +27,6 @@ class GameView(ViewSet):
         # body of the request from the client.
         game = Game()
         game.name = request.data["name"]
-        game.game_type = request.data["game_type"]
         game.description = request.data["description"]
         game.number_of_players = request.data["numberOfPlayers"]
         game.maker = request.data["maker"]

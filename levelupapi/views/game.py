@@ -28,7 +28,7 @@ class GameView(ViewSet):
         game = Game()
         game.name = request.data["name"]
         game.description = request.data["description"]
-        game.number_of_players = request.data["numberOfPlayers"]
+        game.number_of_players = request.data["number_of_players"]
         game.maker = request.data["maker"]
         game.gamer = gamer
 
@@ -86,7 +86,7 @@ class GameView(ViewSet):
         game.name = request.data["name"]
         game.game_type = request.data["game_type"]
         game.description = request.data["description"]
-        game.number_of_players = request.data["numberOfPlayers"]
+        game.number_of_players = request.data["number_of_players"]
         game.maker = request.data["maker"]
         game.gamer = gamer
 

@@ -13,6 +13,34 @@ from levelupapi.models import Game, Event, Gamer
 class EventView(ViewSet):
     """Level up events"""
 
+
+    @action(methods=['post', 'delete'], detail=True)
+    def signup(self, request, pk=None):
+        gamer = Gamer.objects.get(user=request.auth.user)
+
+        try:
+            event =Event.objects.get(pk=pk) 
+        except Event.DoesNotExist:
+                return Response(
+                    {'message': 'Event does not exist.'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
+        if request.method == "POST":
+            try:
+                event.attendees.add(gamer)
+                return Response({}, status=status.HTTP_201_CREATED)
+            except Exception as ex:
+                return Response({'message': ex.args[0]})
+
+        elif request.method == "DELETE":
+            try: 
+                event.attendees.remove(gamer)
+                return Response(None, status=status.HTTP_204_NO_CONTENT)
+            except Exception as ex:
+                return Response({'message': ex.args[0]})
+        
+
     def create(self, request):
         """Handle POST operations for events
 
@@ -107,6 +135,12 @@ class EventView(ViewSet):
         serializer = EventSerializer(
             events, many=True, context={'request': request})
         return Response(serializer.data)
+
+
+        
+
+
+        
 
 
 class EventUserSerializer(serializers.ModelSerializer):

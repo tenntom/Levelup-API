@@ -24,11 +24,11 @@ class GameTests(APITestCase):
         response = self.client.post(url, data, format='json')
 
         # Parse the JSON in the response body
-        # json_response = json.loads(response.content)
+        json_response = json.loads(response.content)
 
         # Store the auth token
-        # self.token = json_response["token"]
-        self.token = response.data['token']
+        self.token = json_response["token"]
+        # self.token = response.data['token']
 
         # Assert that a user was created
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)

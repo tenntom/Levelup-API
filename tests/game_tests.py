@@ -4,6 +4,7 @@ from rest_framework.test import APITestCase
 from levelupapi.models import GameType, Game
 
 class GameTests(APITestCase):
+    #fixtures = ['users', 'tokens', 'etc']
     def setUp(self):
         """
         Create a new account and create sample category

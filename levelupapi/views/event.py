@@ -23,7 +23,7 @@ class EventView(ViewSet):
         except Event.DoesNotExist:
                 return Response(
                     {'message': 'Event does not exist.'},
-                    status=status.HTTP_400_BAD_REQUEST
+                    status=status.HTTP_404_NOT_FOUND
                 )
 
         if request.method == "POST":

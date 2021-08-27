@@ -14,24 +14,16 @@ def userevent_list(request):
 
             db_cursor.execute("""
                 SELECT
-                    u.first_name || ' ' || u.last_name AS full_name,
-                    gr.id as user_id,
-                    e.id,
-                    e.title,
-                    e.description,
-                    e.date,
-                    e.time,
-                    gm.name
+                    full_name,
+                    user_id,
+                    id,
+                    title,
+                    description,
+                    date,
+                    time,
+                    name
                 FROM
-                    levelupapi_event e
-                JOIN
-                    levelupapi_eventgamer eg ON eg.event_id = e.id
-                JOIN
-                    levelupapi_gamer gr ON eg.gamer_id = gr.id
-                JOIN
-                    auth_user u ON gr.user_id = u.id
-                JOIN 
-                    levelupapi_game gm ON e.game_id = gm.id
+                    EVENTS_BY_USER
             """)
 
             dataset = db_cursor.fetchall()

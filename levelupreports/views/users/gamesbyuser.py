@@ -13,23 +13,38 @@ def usergame_list(request):
             conn.row_factory = sqlite3.Row
             db_cursor = conn.cursor()
 
-            # Query for all games, with related user info.
             db_cursor.execute("""
-                SELECT
-                    g.id,
-                    g.name,
-                    g.maker,
-                    g.game_type_id,
-                    g.number_of_players,
-                    u.id user_id,
-                    u.first_name || ' ' || u.last_name AS full_name
-                FROM
-                    levelupapi_game g
-                JOIN
-                    levelupapi_gamer gr ON g.gamer_id = gr.id
-                JOIN
-                    auth_user u ON gr.user_id = u.id
+            SELECT
+                id,
+                name,
+                maker,
+                game_type_id,
+                number_of_players,
+                user_id,
+                full_name
+            FROM
+                GAMES_BY_USER
             """)
+
+            # Query for all games, with related user info.
+            # db_cursor.execute("""
+            #     SELECT
+            #         g.id,
+            #         g.name,
+            #         g.maker,
+            #         g.game_type_id,
+            #         g.number_of_players,
+            #         u.id user_id,
+            #         u.first_name || ' ' || u.last_name AS full_name
+            #     FROM
+            #         levelupapi_game g
+            #     JOIN
+            #         levelupapi_gamer gr ON g.gamer_id = gr.id
+            #     JOIN
+            #         auth_user u ON gr.user_id = u.id
+            # """)
+
+            
 
             dataset = db_cursor.fetchall()
 
